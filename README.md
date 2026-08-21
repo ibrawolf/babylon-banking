@@ -23,6 +23,13 @@ The public website contains no public banking data. Approved staff sign in with 
 3. On first sign-in, replace the temporary password.
 4. Continue to the protected banking workspace.
 
+Current staff logins:
+
+- `ibrawolf@bbc.com` — CFO
+- `yusuf@bbc.com` — COO
+
+Temporary passwords must be replaced on first sign-in. New passwords require at least 10 characters with uppercase, lowercase, a number, and a symbol.
+
 ## Banking workspace
 
 The portal includes:
