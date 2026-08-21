@@ -16,12 +16,12 @@ Secure, real-time CFO command center and double-entry banking ledger for Babylon
 
 ## Staff access
 
-The public website contains no public banking data. Approved staff sign in with a one-time magic link sent to their authorized email address. Database row-level security verifies bank membership before returning records or accepting transactions.
+The public website contains no public banking data. Approved staff sign in with an assigned `@bbc.com` staff login and password. Database row-level security verifies bank membership before returning records or accepting transactions.
 
 1. Open the live staff portal.
-2. Enter an approved staff email.
-3. Select **Email me a sign-in link**.
-4. Open the email on the same device and follow the link.
+2. Enter an approved `@bbc.com` staff login and password.
+3. On first sign-in, replace the temporary password.
+4. Continue to the protected banking workspace.
 
 ## Banking workspace
 
