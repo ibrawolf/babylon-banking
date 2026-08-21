@@ -1,38 +1,59 @@
 # Babylon Banking Corporation
 
-A secure, live CFO command center for Babylon Banking Corporation in Politics & War.
+Secure, real-time CFO command center and double-entry banking ledger for Babylon Banking Corporation in Politics & War.
 
-## What is included
+**Live staff portal:** https://ibrawolf.github.io/babylon-banking/
 
-- Cash, deposit, loan, payment, customer, journal, trial-balance, reporting, governance, and close-control views
-- Supabase Auth magic-link sign-in
-- PostgreSQL constraints and row-level security for approved bank staff
-- Atomic transaction posting through `bank_action`, so every financial batch succeeds or rolls back as one unit
-- Realtime dashboard refresh when authorized users post new activity
-- Prebuilt static deployment for GitHub Pages
-- Opening books: $8 billion founder capital and the $50 million Emrys Federation deposit at 1.5% monthly from 17 August to 17 September 2026
+## Opening books
 
-## Local builds
+- Bank opened: 19 August 2026
+- Reporting start: 21 August 2026
+- Founder capital: $8,000,000,000 cash funded by Richard
+- Opening customer: The Emrys Federation, led by Emrys (Nation ID 740012; Singularity)
+- Opening deposit: $50,000,000 at 1.5% monthly, 17 August–17 September 2026
+- Opening bank cash after the deposit: $8,050,000,000
+- Loans at opening: none
 
-```bash
-npm install
-npm run build:pages
-```
+## Staff access
 
-The static artifact is written to `pages-dist/`. The existing Sites version still builds with `npm run build`.
+The public website contains no public banking data. Approved staff sign in with a one-time magic link sent to their authorized email address. Database row-level security verifies bank membership before returning records or accepting transactions.
 
-## Supabase setup
+1. Open the live staff portal.
+2. Enter an approved staff email.
+3. Select **Email me a sign-in link**.
+4. Open the email on the same device and follow the link.
 
-1. Create a new Supabase project.
-2. Replace `__BANK_OWNER_EMAIL__` in `supabase/migrations/202608210001_babylon_bank.sql` with the CFO sign-in email.
-3. Apply the migration.
-4. Add the deployed GitHub Pages URL to Supabase Auth redirect URLs.
-5. Build with these public environment variables:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_PUBLISHABLE_KEY`
+## Banking workspace
 
-Only use a Supabase `sb_publishable_...` key in the website. Never expose a secret or `service_role` key.
+The portal includes:
 
-## Publishing
+- Executive dashboard with cash, deposits, loans, interest, liquidity, and portfolio analytics
+- Balance sheet and account balances derived from posted journal entries
+- Customer and officer records
+- Deposit register with principal, monthly interest, maturity, accrued interest, and status
+- Loan register with approval controls, payment schedules, balances, and delinquency tracking
+- Double-entry journal and trial balance
+- Income statement, capital, liquidity, and operating statistics
+- Audit log and month-end close checklist
+- Real-time refresh when authorized staff post activity
 
-Set GitHub Pages **Source** to **Deploy from a branch**, select `main`, and choose `/(root)`. Upload the generated files from `pages-dist/` to the repository root.
+## Accounting controls
+
+- Every posted batch must balance: total debits equal total credits.
+- Financial actions run atomically, so a partial posting cannot be saved.
+- Loan activation requires Chairman approval.
+- Posted entries are retained as an audit trail rather than silently overwritten.
+- Database constraints validate dates, positive amounts, allowed statuses, and payment splits.
+- Supabase Row Level Security protects every exposed banking table.
+- Anonymous requests receive no customer or financial records.
+
+## Current officers
+
+- Chairman: Richard — Rich Land, Nation ID 774545
+- Chief Executive Officer: Prosper
+- Chief Financial Officer: Ibrawolf — Republic of Krandia, Nation ID 337443
+- Chief Operations Officer: Yusuf
+
+## Deployment
+
+GitHub Pages serves the production files in the repository root from the `main` branch over enforced HTTPS. Supabase provides authentication, PostgreSQL storage, transaction functions, row-level security, and Realtime updates. Only the browser-safe Supabase publishable key is embedded in the site; privileged secret keys are never published.
