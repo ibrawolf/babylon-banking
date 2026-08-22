@@ -30,19 +30,33 @@ Current staff logins:
 
 Temporary passwords must be replaced on first sign-in. New passwords require at least 10 characters with uppercase, lowercase, a number, and a symbol.
 
+## Customer access
+
+Chairman, CEO, and CFO users provision permanent customer credentials from **Client Service → Access administration**. Customers sign in with a bank username such as `emrys`; the app securely maps it to an internal `@clients.bbc.com` authentication identity, so no real email inbox is required.
+
+- Initial passwords are created or reset through a protected server-side function.
+- Passwords are never stored in the banking tables or returned after provisioning.
+- Staff can require a password change at first sign-in and suspend or restore access.
+- Row-level security limits each customer to their own deposits, loans, payment schedules, statements, requests, holdings, IPO orders, and dividends.
+
 ## Banking workspace
 
-The portal includes:
+The staff portal includes:
 
-- Executive dashboard with cash, deposits, loans, interest, liquidity, and portfolio analytics
+- Executive dashboard with six KPI cards and four analytical graphics for liquidity trend, capital structure, depositor concentration, and operating controls
 - Balance sheet and account balances derived from posted journal entries
 - Customer and officer records
-- Deposit register with principal, monthly interest, maturity, accrued interest, and status
+- Client Service credential administration, account controls, relationship directory, and transaction-request queue
+- Deposit register with working account details, principal, monthly interest, maturity, accrued interest, and status
 - Loan register with approval controls, payment schedules, balances, and delinquency tracking
 - Double-entry journal and trial balance
-- Income statement, capital, liquidity, and operating statistics
-- Audit log and month-end close checklist
+- Reporting center with management summary, financial statements, trial balance, risk analytics, export center, and CSV downloads
+- Capital markets center with ownership analytics, share transactions, IPO order book, and dividend administration
+- Governance control center with authority matrix, decision queue, charter register, audit trail, and evidence-backed month-end close
+- Officer profile with security, device preferences, notifications, session controls, and bank configuration
 - Real-time refresh when authorized staff post activity
+
+The customer portal includes current deposit balances, accrued interest, maturity dates, loan balances, payment schedules, downloadable statements, transaction requests, share holdings, IPO subscriptions, and dividends.
 
 ## Accounting controls
 
@@ -53,6 +67,7 @@ The portal includes:
 - Database constraints validate dates, positive amounts, allowed statuses, and payment splits.
 - Supabase Row Level Security protects every exposed banking table.
 - Anonymous requests receive no customer or financial records.
+- The charter's 40% ownership cap is enforced for every shareholder except Richard, whose founder exemption is explicitly recorded and audited.
 
 ## Current officers
 
